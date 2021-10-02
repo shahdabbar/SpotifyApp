@@ -1,10 +1,6 @@
 import React from 'react';
 
-export default function Header() {
-	const handleLogout = () => {
-		localStorage.clear();
-		window.location = '/login';
-	};
+export default function Header({ logout, isAuthenticated }) {
 	return (
 		<div
 			className={
@@ -12,12 +8,16 @@ export default function Header() {
 			}
 		>
 			<div className={'w-10/12 m-auto flex justify-between items-center'}>
-				<h1 className={'text-3xl text-black font-semibold'}>
+				<h1
+					className={
+						'text-black font-semibold text-xl md:text-2xl lg:text-3xl'
+					}
+				>
 					Spotify Artist Search
 				</h1>
-				{localStorage.getItem('accessToken') && (
+				{isAuthenticated && (
 					<button
-						onClick={() => handleLogout()}
+						onClick={() => logout()}
 						className={
 							'font-semibold cursor-pointer underline hover:text-blue-700'
 						}

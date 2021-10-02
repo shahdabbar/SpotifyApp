@@ -3,12 +3,7 @@ import ArtistsSearch from './pages/ArtistsSearchPage';
 import Login from './pages/LoginPage';
 import ArtistsAlbums from './pages/ArtistsAlbumPage';
 import Header from './components/Header';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Redirect,
-} from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 const getReturnedParamsFromSpotifyAuth = (hash) => {
@@ -29,9 +24,6 @@ function App() {
 	const hash = window.location.hash;
 
 	useEffect(() => {
-		if (localStorage.getItem('accessToken')) {
-			window.history.pushState({}, null, '/');
-		}
 		if (hash && !localStorage.getItem('accessToken')) {
 			const { access_token, expires_in, token_type } =
 				getReturnedParamsFromSpotifyAuth(hash);
@@ -44,9 +36,17 @@ function App() {
 		}
 	}, [hash]);
 
+	const handleLogout = () => {
+		localStorage.clear();
+		window.location = '/login';
+	};
+
 	return (
-		<div className={'min-h-screen min-w-screen bg-darkThree'}>
-			<Header />
+		<div className={'min-h-screen min-w-screen bg-white'}>
+			<Header
+				logout={handleLogout}
+				isAuthenticated={isAuthenticated || hash}
+			/>
 			<div
 				className={
 					'min-h-screen min-w-screen pt-20 flex flex-col justify-center items-center'

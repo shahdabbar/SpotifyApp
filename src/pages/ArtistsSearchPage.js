@@ -15,41 +15,43 @@ export default function ArtistsSearch() {
 			let value = window.location.hash.substring(1);
 			setSearchValue(value);
 		}
+
 		if (!searchValue || !window.location.hash) return setArtists([]);
 		let cancel = false;
-		getArtists(cancel);
+
+		let getArtists = async () => {
+			try {
+				const response = await axios.get(
+					`v1/search?query=${searchValue}&offset=0&limit=20&type=artist`
+				);
+				const data = response.data.artists.items;
+				if (cancel) return;
+
+				setArtists(
+					data.map((artist) => {
+						return {
+							name: artist.name,
+							id: artist.id,
+							image: artist.images[1]?.url,
+							followers: artist.followers.total,
+							rating: artist.popularity,
+						};
+					})
+				);
+			} catch (error) {
+				console.log({ error });
+			}
+		};
+
+		getArtists();
 
 		return () => {
 			cancel = true;
 		};
 	}, [searchValue]);
 
-	const getArtists = async (cancel = false) => {
-		try {
-			const response = await axios.get(
-				`v1/search?query=${searchValue}&offset=0&limit=20&type=artist`
-			);
-			const data = response.data.artists.items;
-			if (cancel) return;
-
-			setArtists(
-				data.map((artist) => {
-					return {
-						name: artist.name,
-						id: artist.id,
-						image: artist.images[1]?.url,
-						followers: artist.followers.total,
-						rating: artist.popularity,
-					};
-				})
-			);
-		} catch (error) {
-			console.log({ error });
-		}
-	};
-
 	const handleOnChangeSearchValue = (e) => {
-		window.location.hash = e.target.value;
+		window.history.pushState({}, null, `#${e.target.value}`);
 		setSearchValue(e.target.value);
 	};
 	const handleOnClickArtist = (artist) => {

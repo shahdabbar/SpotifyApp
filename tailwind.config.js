@@ -72,6 +72,7 @@ module.exports = {
 			ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
 			pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			bounce: 'bounce 1s infinite',
+			blob: 'blob 7s infinite',
 		},
 		backdropBlur: (theme) => theme('blur'),
 		backdropBrightness: (theme) => theme('brightness'),
@@ -287,6 +288,7 @@ module.exports = {
 				'"Courier New"',
 				'monospace',
 			],
+			body: ['Kaushan Script'],
 		},
 		fontSize: {
 			xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -495,6 +497,23 @@ module.exports = {
 				'50%': {
 					transform: 'none',
 					animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+				},
+			},
+			blob: {
+				'0%': {
+					transform: 'translate(0px,0px) scale(1)',
+				},
+				'25%': {
+					transform: 'translate(0px, -50px) scale(1.2)',
+				},
+				'50%': {
+					transform: 'translate(-20px, 30px) scale(0.8)',
+				},
+				'75%': {
+					transform: 'translate(50px, 20px) scale(1.1)',
+				},
+				'100%': {
+					transform: 'translate(0px, 0px) scale(1)',
 				},
 			},
 		},
