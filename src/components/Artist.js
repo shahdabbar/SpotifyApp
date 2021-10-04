@@ -24,13 +24,13 @@ export default function Artist({ artist, onClickArtist }) {
 			>
 				{artist.image ? (
 					<img
-						className={'w-full h-52 object-fill rounded-full'}
+						className={'w-full h-52 object-cover rounded-full'}
 						src={artist.image}
 						alt=''
 					/>
 				) : (
 					<img
-						className={'w-full h-52 rounded-full object-fill'}
+						className={'w-full h-52 object-fill rounded-full'}
 						src={
 							'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDYcwuuzoFenCVd6DxTU0_oR9NYEZUrnmZ9x2c6jGfZfxTL8qHoi3OcAb164YC3qi8fl4&usqp=CAU'
 						}

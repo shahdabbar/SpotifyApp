@@ -27,7 +27,7 @@ export default function ArtistsAlbums() {
 								releaseDate: album.release_date,
 								tracks: album.total_tracks,
 								image: album.images[1].url,
-								external_urls: album.artists[0].external_urls.spotify
+								external_urls: album.artists[0].external_urls.spotify,
 							};
 						})
 					);
@@ -44,7 +44,7 @@ export default function ArtistsAlbums() {
 	}, [location.state, albums, mounted]);
 
 	return (
-		<div className={'mt-5 w-10/12'}>
+		<div className={'mt-5 w-8/12 xs:w-10/12'}>
 			{!mounted && (
 				<>
 					<div className={'mb-4'}>
@@ -58,7 +58,7 @@ export default function ArtistsAlbums() {
 
 					<div
 						className={
-							'grid grid-cols-1 gap-6 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-20'
+							'grid grid-cols-1 gap-6 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-20'
 						}
 					>
 						{albums &&

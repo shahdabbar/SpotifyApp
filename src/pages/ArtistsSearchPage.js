@@ -65,7 +65,7 @@ export default function ArtistsSearch() {
 		<div className={'w-screen flex flex-col justify-center items-center'}>
 			<div
 				className={
-					'relative flex flex-row justify-between items-center bg-white w-3/6 md:w-5/12 xl:w-6/12 px-4 py-4 rounded-full border-2 border-gray-300'
+					'relative flex flex-row justify-between items-center bg-white w-3/6 md:w-5/12 xl:w-6/12 sm:p-4 p-2 rounded-full border-2 border-gray-300'
 				}
 			>
 				<BsSearch className={'text-2xl text-gray-600'} />
@@ -80,10 +80,10 @@ export default function ArtistsSearch() {
 				/>
 			</div>
 
-			<div className={'mt-5 w-10/12'}>
+			<div className={'mt-5 w-8/12 xs:w-10/12'}>
 				<div
 					className={
-						'grid grid-cols-1 gap-6 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-20'
+						'grid grid-cols-1 gap-6 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-20'
 					}
 				>
 					{artists &&
