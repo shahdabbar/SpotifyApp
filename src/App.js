@@ -59,7 +59,7 @@ function App() {
 								<Route exact path='/'>
 									<ArtistsSearch />
 								</Route>
-								<Route path='/artist/:id/albums'>
+								<Route path='/artist/:name/albums'>
 									<ArtistsAlbums />
 								</Route>
 							</>

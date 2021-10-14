@@ -17,20 +17,16 @@ export default function Artist({ artist, onClickArtist }) {
 				'bg-darkTwo h-100 rounded-lg flex flex-col flex-nowrap justify-between items-start hover:bg-opacity-90'
 			}
 		>
-			<div
-				className={
-					'max-h-52 w-5/6 m-auto my-5 bg-center shadow-2xl rounded-full'
-				}
-			>
+			<div className={'w-5/6 m-auto my-5 bg-center shadow-2xl rounded-full'}>
 				{artist.image ? (
 					<img
-						className={'w-full h-52 object-cover rounded-full'}
+						className={'w-full h-full object-fill rounded-full'}
 						src={artist.image}
 						alt=''
 					/>
 				) : (
 					<img
-						className={'w-full h-52 object-fill rounded-full'}
+						className={'w-full h-full object-fill rounded-full'}
 						src={
 							'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDYcwuuzoFenCVd6DxTU0_oR9NYEZUrnmZ9x2c6jGfZfxTL8qHoi3OcAb164YC3qi8fl4&usqp=CAU'
 						}

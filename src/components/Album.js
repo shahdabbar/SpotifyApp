@@ -19,20 +19,16 @@ export default function Album({ album }) {
 				'bg-darkTwo h-100 rounded-lg flex flex-col flex-nowrap justify-between items-start hover:bg-opacity-90'
 			}
 		>
-			<div
-				className={
-					'max-h-52 w-5/6 m-auto mt-5 mb-3 bg-center shadow-lg rounded'
-				}
-			>
+			<div className={'w-5/6 m-auto mt-5 mb-3 shadow-2xl rounded'}>
 				{album.image ? (
 					<img
-						className={'w-full h-52 object-fill rounded shadow-xl'}
+						className={'h-full w-full object-fill rounded'}
 						src={album.image}
 						alt=''
 					/>
 				) : (
 					<img
-						className={'w-full h-52 rounded-lg object-fill shadow-2xl'}
+						className={'h-full w-full rounded object-fill'}
 						src={
 							'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDYcwuuzoFenCVd6DxTU0_oR9NYEZUrnmZ9x2c6jGfZfxTL8qHoi3OcAb164YC3qi8fl4&usqp=CAU'
 						}
@@ -51,7 +47,7 @@ export default function Album({ album }) {
 					{album.name}
 				</h2>
 				<h4 className={'text-gray-400 text-sm'}>{album.aryistName}</h4>
-				<div className={'mt-3'}>
+				<div className={'my-3'}>
 					<p className={'text-gray-400 text-xs'}>{album.releaseDate}</p>
 					<p className={'text-gray-400 text-xs'}>{album.tracks} tracks</p>
 				</div>
@@ -60,7 +56,7 @@ export default function Album({ album }) {
 				onClick={viewAlbum}
 				style={{ backgroundColor: '#19E68C' }}
 				className={
-					'w-full mt-3 p-1 border-1 border-red-900 font-semibold rounded-b'
+					'w-full p-1 border-1 border-red-900 font-semibold rounded-b-lg'
 				}
 			>
 				Preview on Spotify

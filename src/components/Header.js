@@ -10,7 +10,7 @@ export default function Header({ logout, isAuthenticated }) {
 			<div className={'w-10/12 m-auto flex justify-between items-center'}>
 				<h1
 					className={
-						'text-black font-semibold text-xl md:text-2xl lg:text-3xl'
+						'text-black font-semibold text-lg sm:text-2xl lg:text-3xl'
 					}
 				>
 					Spotify Artist Search
@@ -19,7 +19,7 @@ export default function Header({ logout, isAuthenticated }) {
 					<button
 						onClick={() => logout()}
 						className={
-							'font-semibold cursor-pointer underline hover:text-blue-700'
+							'hidden xs:block font-semibold cursor-pointer underline hover:text-blue-700'
 						}
 					>
 						Logout

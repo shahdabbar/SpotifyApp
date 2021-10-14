@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from '../api';
 import Artist from '../components/Artist';
 import { useHistory } from 'react-router-dom';
-import { BsSearch } from 'react-icons/bs';
+import SearchForm from '../components/SearchForm';
 
 export default function ArtistsSearch() {
 	const history = useHistory();
@@ -50,37 +50,25 @@ export default function ArtistsSearch() {
 		};
 	}, [searchValue]);
 
-	const handleOnChangeSearchValue = (e) => {
+	const onChangeSearchValue = (e) => {
 		window.history.pushState({}, null, `#${e.target.value}`);
 		setSearchValue(e.target.value);
 	};
 	const handleOnClickArtist = (artist) => {
 		history.push({
-			pathname: `/artist/${artist.id}/albums`,
+			pathname: `/artist/${artist.name}/albums`,
 			state: artist,
 		});
 	};
 
 	return (
 		<div className={'w-screen flex flex-col justify-center items-center'}>
-			<div
-				className={
-					'relative flex flex-row justify-between items-center bg-white w-3/6 md:w-5/12 xl:w-6/12 sm:p-4 p-2 rounded-full border-2 border-gray-300'
-				}
-			>
-				<BsSearch className={'text-2xl text-gray-600'} />
-				<input
-					className={
-						'bg-white focus:bg-white w-full ml-3 focus:outline-none'
-					}
-					type='search'
-					placeholder='Search for an artist…'
-					value={searchValue}
-					onChange={(e) => handleOnChangeSearchValue(e)}
-				/>
-			</div>
+			<SearchForm
+				onChangeSearchValue={onChangeSearchValue}
+				searchValue={searchValue}
+			/>
 
-			<div className={'mt-5 w-8/12 xs:w-10/12'}>
+			<div className={'mt-5 w-10/12'}>
 				<div
 					className={
 						'grid grid-cols-1 gap-6 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-20'

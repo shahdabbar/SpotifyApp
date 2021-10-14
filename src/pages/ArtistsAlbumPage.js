@@ -44,11 +44,15 @@ export default function ArtistsAlbums() {
 	}, [location.state, albums, mounted]);
 
 	return (
-		<div className={'mt-5 w-8/12 xs:w-10/12'}>
+		<div className={'mt-5 w-10/12'}>
 			{!mounted && (
 				<>
 					<div className={'mb-4'}>
-						<h1 className={'text-2xl text-gray-900 font-semibold'}>
+						<h1
+							className={
+								'text-xl sm:text-2xl text-gray-900 font-semibold'
+							}
+						>
 							{location.state.name}
 						</h1>
 						<h6 className={'text-md font-semibold text-gray-600'}>
